@@ -16,7 +16,8 @@ public interface PaymentService extends BaseBean<String> {
      *
      * @param param    {@link OrderParam} 订单参数
      * @param clientId {@link String} 客户端编号
-     * @param <Param>  {@link Object} 不同方式的支付返回值不同,因此这里返回一个Object
+     * @param <Param>  {@link OrderParam} 订单类
+     * @return {@link Object} 不同方式的支付返回值不同,因此这里返回一个Object
      */
     <Param extends OrderParam> Object payment(Param param, String clientId);
 
