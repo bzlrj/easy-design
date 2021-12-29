@@ -1,7 +1,6 @@
 package com.y1ph.easy.design.common;
 
 import lombok.SneakyThrows;
-import org.springframework.beans.BeansException;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 import org.springframework.util.Assert;
@@ -44,7 +43,7 @@ public abstract class BaseBeanFactory<Id extends Serializable, Bean extends Base
     @Override
     @SneakyThrows
     @SuppressWarnings("unchecked")
-    public final void setApplicationContext(ApplicationContext context) throws BeansException {
+    public final void setApplicationContext(ApplicationContext context) {
         //  获取泛型超类
         Type superclass = this.getClass().getGenericSuperclass();
         if (superclass instanceof ParameterizedType) {
