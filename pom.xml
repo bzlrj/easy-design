@@ -12,6 +12,7 @@
         <module>easy-design-website</module>
         <module>easy-design-payment</module>
         <module>easy-design-payment-alibaba</module>
+        <module>easy-design-payment-wechat</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -98,6 +99,12 @@
                 <artifactId>easy-design-payment-alibaba</artifactId>
                 <version>${easy-design.version}</version>
             </dependency>
+            <dependency>
+                <groupId>com.y1ph</groupId>
+                <artifactId>easy-design-payment-wechat</artifactId>
+                <version>${easy-design.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
