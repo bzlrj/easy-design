@@ -1,12 +1,10 @@
 package com.y1ph.easy.design.payment.alibaba.service;
 
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
-import com.y1ph.easy.design.payment.beans.OrderParam;
+import com.y1ph.easy.design.payment.beans.PaymentOrder;
 import com.y1ph.easy.design.payment.service.PaymentService;
 import lombok.SneakyThrows;
 import org.springframework.beans.BeansException;
-import org.springframework.boot.configurationprocessor.json.JSONException;
-import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -22,24 +20,8 @@ public abstract class BasePaymentService implements PaymentService<AlipayPropert
 
     @Override
     @SneakyThrows
-    public <Param extends OrderParam> Object payment(Param param, String clientId) {
+    public <Param extends PaymentOrder> Object payment(Param param, String clientId) {
         return this.payment(param, this.propertiesService.getProperties(clientId));
-    }
-
-    /**
-     * 构建业务参数
-     *
-     * @param param   订单信息
-     * @param code    业务编号
-     * @param <Param> {@link OrderParam}
-     * @return {@link JSONObject}
-     */
-    protected <Param extends OrderParam> JSONObject build(Param param, String code) throws JSONException {
-        return new JSONObject()
-            .put("out_trade_no", param.getId())
-            .put("total_amount", ((double) param.getPrice()) / 100)
-            .put("subject", param.getSubject())
-            .put("product_code", code);
     }
 
     @Override
