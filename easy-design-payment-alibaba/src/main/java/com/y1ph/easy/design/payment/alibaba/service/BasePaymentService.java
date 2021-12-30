@@ -26,11 +26,7 @@ public abstract class BasePaymentService implements PaymentService<AlipayPropert
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
-        //  获取支付宝配置接口
         this.propertiesService = context.getBean(AlipayPropertiesService.class);
-        if (null == this.propertiesService) {
-            throw new RuntimeException(String.format("请实现%s接口", AlipayPropertiesService.class.toString()));
-        }
     }
 
 }

@@ -27,8 +27,5 @@ public abstract class BasePaymentService implements PaymentService<WechatPropert
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         this.propertiesService = context.getBean(WechatPropertiesService.class);
-        if (null == this.propertiesService) {
-            throw new RuntimeException(String.format("请实现%s接口", WechatPropertiesService.class.toString()));
-        }
     }
 }
