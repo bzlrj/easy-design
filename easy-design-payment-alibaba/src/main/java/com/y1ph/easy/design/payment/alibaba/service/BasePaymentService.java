@@ -3,12 +3,14 @@ package com.y1ph.easy.design.payment.alibaba.service;
 import com.alipay.api.AlipayClient;
 import com.alipay.api.AlipayResponse;
 import com.alipay.api.DefaultAlipayClient;
-import com.y1ph.easy.design.common.util.Function;
+import com.y1ph.easy.design.common.utils.Function;
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
 import com.y1ph.easy.design.payment.beans.OrderParam;
 import com.y1ph.easy.design.payment.service.PaymentService;
 import lombok.SneakyThrows;
 import org.springframework.beans.BeansException;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
 
@@ -18,7 +20,7 @@ import org.springframework.context.ApplicationContextAware;
  * @author WFT
  * @since 2021/12/30
  */
-public abstract class BasePaymentService<Response extends AlipayResponse> implements PaymentService<AlipayProperties<?>>, ApplicationContextAware {
+public abstract class BasePaymentService<R extends AlipayResponse> implements PaymentService<AlipayProperties<?>>, ApplicationContextAware {
 
     private AlipayPropertiesService<?> propertiesService;
 
@@ -27,12 +29,11 @@ public abstract class BasePaymentService<Response extends AlipayResponse> implem
      *
      * @param function     {@link Function}
      * @param properties   {@link AlipayProperties}
-     * @param <Properties> {@link AlipayProperties}
+     * @param <P> {@link AlipayProperties}
      * @return {@link String}
      */
-    @SneakyThrows
     @SuppressWarnings("SpellCheckingInspection")
-    protected <Properties extends AlipayProperties<?>> String execute(Function<AlipayClient, Response> function, Properties properties) {
+    protected <P extends AlipayProperties<?>> String execute(Function<AlipayClient, R> function, P properties) throws Exception {
         return function.apply(new DefaultAlipayClient(
             properties.getServerUrl(),
             properties.getAppId(),
@@ -45,8 +46,25 @@ public abstract class BasePaymentService<Response extends AlipayResponse> implem
     }
 
     @Override
+    @SneakyThrows
     public <Param extends OrderParam> Object payment(Param param, String clientId) {
         return this.payment(param, this.propertiesService.getProperties(clientId));
+    }
+
+    /**
+     * 构建业务参数
+     *
+     * @param param   订单信息
+     * @param code    业务编号
+     * @param <Param> {@link OrderParam}
+     * @return {@link JSONObject}
+     */
+    protected <Param extends OrderParam> JSONObject build(Param param, String code) throws JSONException {
+        return new JSONObject()
+            .put("out_trade_no", param.getId())
+            .put("total_amount", ((double) param.getPrice()) / 100)
+            .put("subject", param.getSubject())
+            .put("product_code", code);
     }
 
     @Override
