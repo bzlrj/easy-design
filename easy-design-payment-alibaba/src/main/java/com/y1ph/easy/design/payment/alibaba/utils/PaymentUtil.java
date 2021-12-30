@@ -5,6 +5,10 @@ import com.alipay.api.AlipayResponse;
 import com.alipay.api.DefaultAlipayClient;
 import com.y1ph.easy.design.common.utils.Function;
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
+import com.y1ph.easy.design.payment.beans.PaymentOrder;
+import com.y1ph.easy.design.payment.beans.RefundOrder;
+import org.springframework.boot.configurationprocessor.json.JSONException;
+import org.springframework.boot.configurationprocessor.json.JSONObject;
 
 /**
  * 支付工具类
@@ -37,6 +41,40 @@ public class PaymentUtil {
      */
     public static PaymentUtil getInstance() {
         return Holder.INSTANCE;
+    }
+
+    /**
+     * 构建支付的请求体
+     *
+     * @param param   订单信息
+     * @param code    业务编码
+     * @param <Param> {@link PaymentOrder}
+     * @return {@link JSONObject}
+     */
+    public <Param extends PaymentOrder> JSONObject buildPaymentBody(Param param, String code) throws JSONException {
+        return new JSONObject()
+            .put("out_trade_no", param.getId())
+            .put("total_amount", this.priceFormat(param.getPrice()))
+            .put("subject", param.getSubject())
+            .put("product_code", code);
+    }
+
+    /**
+     * 构建退款的请求体
+     *
+     * @param param   订单信息
+     * @param <Param> {@link RefundOrder}
+     * @return {@link JSONObject}
+     */
+    public <Param extends RefundOrder> JSONObject buildRefundBody(Param param) throws JSONException {
+        return new JSONObject()
+            .put("out_trade_no", param.getOrderId())
+            .put("refund_amount", this.priceFormat(param.getPrice()))
+            .put("out_request_no",param.getId());
+    }
+
+    private double priceFormat(Integer price) {
+        return ((double) price) / 100;
     }
 
     /**
