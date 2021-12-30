@@ -1,3 +1,3 @@
 # suppress inspection "SpellCheckingInspection" for whole file
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
-  com.y1ph.easy.design.payment.alibaba.PaymentAutoConfiguration
+  com.y1ph.easy.design.payment.alibaba.AlibabaPaymentAutoConfiguration
