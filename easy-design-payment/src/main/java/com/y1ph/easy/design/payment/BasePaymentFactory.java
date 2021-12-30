@@ -12,7 +12,7 @@ import com.y1ph.easy.design.payment.service.RefundService;
  * @author WFT
  * @since 2021/12/30
  */
-public abstract class BasePaymentFactory<Payment extends PaymentService>
+public abstract class BasePaymentFactory<Payment extends PaymentService<?>>
     extends BaseBeanFactory<String, Payment> implements BaseBean<String> {
 
     @Override
