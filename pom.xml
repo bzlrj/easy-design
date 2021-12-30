@@ -11,6 +11,7 @@
         <module>easy-design-common</module>
         <module>easy-design-website</module>
         <module>easy-design-payment</module>
+        <module>easy-design-payment-alibaba</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -90,6 +91,11 @@
             <dependency>
                 <groupId>com.y1ph</groupId>
                 <artifactId>easy-design-payment</artifactId>
+                <version>${easy-design.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.y1ph</groupId>
+                <artifactId>easy-design-payment-alibaba</artifactId>
                 <version>${easy-design.version}</version>
             </dependency>
         </dependencies>
