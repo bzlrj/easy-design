@@ -10,6 +10,7 @@ import java.io.Serializable;
  * @author WFT
  * @since 2021/12/31
  */
+@SuppressWarnings("SpellCheckingInspection")
 public interface WechatProperties<Id extends Serializable> extends PaymentProperties<Id> {
 
     /**
