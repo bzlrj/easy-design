@@ -1,5 +1,6 @@
 package com.y1ph.easy.design.payment;
 
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
 /**
@@ -9,6 +10,7 @@ import org.springframework.context.annotation.Configuration;
  * @since 2021/12/30
  */
 @Configuration
+@ComponentScan
 public class PaymentConfiguration {
 
 
