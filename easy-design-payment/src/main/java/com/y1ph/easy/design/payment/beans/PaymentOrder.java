@@ -3,12 +3,12 @@ package com.y1ph.easy.design.payment.beans;
 import com.y1ph.easy.design.common.BaseEntity;
 
 /**
- * 订单参数接口
+ * 支付订单接口
  *
  * @author WFT
  * @since 2021/12/30
  */
-public interface OrderParam extends BaseEntity<Long> {
+public interface PaymentOrder extends BaseEntity<Long> {
 
     /**
      * 获取订单主题
