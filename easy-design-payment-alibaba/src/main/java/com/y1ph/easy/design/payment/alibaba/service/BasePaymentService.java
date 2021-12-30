@@ -18,20 +18,20 @@ import org.springframework.context.ApplicationContextAware;
  * @author WFT
  * @since 2021/12/30
  */
-@SuppressWarnings("SpellCheckingInspection")
-public abstract class BasePaymentService<Response extends AlipayResponse> implements PaymentService, ApplicationContextAware {
+public abstract class BasePaymentService<Response extends AlipayResponse> implements PaymentService<AlipayProperties<?>>, ApplicationContextAware {
 
     private AlipayPropertiesService<?> propertiesService;
 
     /**
-     * 调起第三方支付
+     * 创建支付宝客户端,并调起支付
      *
      * @param function     {@link Function}
-     * @param properties   {@link AlipayProperties} 支付配置
+     * @param properties   {@link AlipayProperties}
      * @param <Properties> {@link AlipayProperties}
      * @return {@link String}
      */
     @SneakyThrows
+    @SuppressWarnings("SpellCheckingInspection")
     protected <Properties extends AlipayProperties<?>> String execute(Function<AlipayClient, Response> function, Properties properties) {
         return function.apply(new DefaultAlipayClient(
             properties.getServerUrl(),
@@ -48,16 +48,6 @@ public abstract class BasePaymentService<Response extends AlipayResponse> implem
     public <Param extends OrderParam> Object payment(Param param, String clientId) {
         return this.payment(param, this.propertiesService.getProperties(clientId));
     }
-
-    /**
-     * 调起第三方支付
-     *
-     * @param param      {@link OrderParam} 订单参数
-     * @param properties {@link AlipayProperties} 支付配置
-     * @param <Param>    {@link OrderParam}
-     * @return {@link Object}
-     */
-    protected abstract <Param extends OrderParam> Object payment(Param param, AlipayProperties<?> properties);
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
