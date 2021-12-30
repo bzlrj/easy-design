@@ -30,11 +30,6 @@ public class DefaultAlipayProperties implements AlipayProperties<Long> {
     private String appId;
 
     /**
-     * 商户编号
-     */
-    private String merchantId;
-
-    /**
      * 密钥
      */
     private String privateKey;
