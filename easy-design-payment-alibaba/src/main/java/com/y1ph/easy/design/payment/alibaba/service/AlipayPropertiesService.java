@@ -9,7 +9,7 @@ import com.y1ph.easy.design.payment.service.PaymentPropertiesService;
  * @author WFT
  * @since 2021/12/30
  */
-@SuppressWarnings({"SpellCheckingInspection", "WeakerAccess"})
+@SuppressWarnings(value = "SpellCheckingInspection")
 public interface AlipayPropertiesService<Properties extends AlipayProperties<?>> extends PaymentPropertiesService<Properties> {
 
 }
