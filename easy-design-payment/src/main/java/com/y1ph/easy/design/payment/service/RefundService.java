@@ -1,6 +1,6 @@
 package com.y1ph.easy.design.payment.service;
 
-import com.y1ph.easy.design.payment.beans.OrderParam;
+import com.y1ph.easy.design.payment.beans.RefundOrder;
 
 /**
  * 退款接口
@@ -13,9 +13,10 @@ public interface RefundService {
     /**
      * 调用第三方的退款接口
      *
-     * @param param {@link OrderParam} 订单参数
-     * @param <T>   {@link OrderParam} 订单类
+     * @param param    {@link RefundOrder} 退款订单
+     * @param clientId {@link String} 客户端编号
+     * @param <Param>  {@link RefundOrder}
      */
-    <T extends OrderParam> void refund(T param);
+    <Param extends RefundOrder> void refund(Param param, String clientId);
 
 }
