@@ -1,9 +1,9 @@
 package com.y1ph.easy.design.payment.alibaba.service.impl;
 
 import com.alipay.api.request.AlipayTradeWapPayRequest;
-import com.alipay.api.response.AlipayTradeWapPayResponse;
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
 import com.y1ph.easy.design.payment.alibaba.service.BasePaymentService;
+import com.y1ph.easy.design.payment.alibaba.utils.PaymentUtil;
 import com.y1ph.easy.design.payment.beans.OrderParam;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
@@ -19,7 +19,7 @@ import org.springframework.stereotype.Service;
 @Service
 @RequiredArgsConstructor
 @SuppressWarnings("SpellCheckingInspection")
-public class AlibabaH5PaymentServiceImpl extends BasePaymentService<AlipayTradeWapPayResponse> {
+public class AlibabaH5PaymentServiceImpl extends BasePaymentService {
 
     @Override
     public <Param extends OrderParam> Object payment(Param param, AlipayProperties<?> properties) throws Exception {
@@ -33,7 +33,7 @@ public class AlibabaH5PaymentServiceImpl extends BasePaymentService<AlipayTradeW
             .put("quit_url", properties.getExitUrl());
         request.setBizContent(content.toString());
         //  调起支付
-        return super.execute(client -> client.pageExecute(request), properties);
+        return PaymentUtil.getInstance().execute(client -> client.sdkExecute(request),properties);
     }
 
     @Override
