@@ -41,13 +41,6 @@ public interface PaymentProperties<Id extends Serializable> extends BaseEntity<I
     String getPrivateKey();
 
     /**
-     * 获取公钥
-     *
-     * @return {@link String}
-     */
-    String getPublicKey();
-
-    /**
      * 获取支付后用于接受第三方异步通知的接口地址
      *
      * @return {@link String}

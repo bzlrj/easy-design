@@ -14,6 +14,13 @@ import java.io.Serializable;
 public interface AlipayProperties<Id extends Serializable> extends PaymentProperties<Id> {
 
     /**
+     * 获取公钥
+     *
+     * @return {@link String}
+     */
+    String getPublicKey();
+
+    /**
      * 仅支持JSON
      *
      * @return {@link String}
