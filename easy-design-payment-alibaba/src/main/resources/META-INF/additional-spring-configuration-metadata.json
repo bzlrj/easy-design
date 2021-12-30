@@ -3,7 +3,7 @@
         {
             "name": "easy.payment.alipay-list",
             "type": "java.util.List<com.y1ph.easy.design.payment.alibaba.beans.DefaultAlipayProperties>",
-            "description": "支付相关配置."
+            "description": "支付宝相关配置."
         }
     ]
 }
