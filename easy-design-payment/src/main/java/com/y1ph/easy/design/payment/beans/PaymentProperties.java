@@ -27,13 +27,6 @@ public interface PaymentProperties<Id extends Serializable> extends BaseEntity<I
     String getAppId();
 
     /**
-     * 获取商户编号
-     *
-     * @return {@link String}
-     */
-    String getMerchantId();
-
-    /**
      * 获取私钥
      *
      * @return {@link String}
