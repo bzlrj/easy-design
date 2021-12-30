@@ -4,7 +4,7 @@ import com.alipay.api.request.AlipayTradeWapPayRequest;
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
 import com.y1ph.easy.design.payment.alibaba.service.BasePaymentService;
 import com.y1ph.easy.design.payment.alibaba.utils.PaymentUtil;
-import com.y1ph.easy.design.payment.beans.OrderParam;
+import com.y1ph.easy.design.payment.beans.PaymentOrder;
 import lombok.RequiredArgsConstructor;
 import org.springframework.boot.configurationprocessor.json.JSONObject;
 import org.springframework.stereotype.Service;
@@ -22,14 +22,14 @@ import org.springframework.stereotype.Service;
 public class AlibabaH5PaymentServiceImpl extends BasePaymentService {
 
     @Override
-    public <Param extends OrderParam> Object payment(Param param, AlipayProperties<?> properties) throws Exception {
+    public <Param extends PaymentOrder> Object payment(Param param, AlipayProperties<?> properties) throws Exception {
         //  构建请求体
         AlipayTradeWapPayRequest request = new AlipayTradeWapPayRequest();
         //  设置支付回调地址和支付后返回的地址
         request.setNotifyUrl(properties.getNotifyUrl());
         request.setReturnUrl(properties.getSuccessUrl());
         //  设置业务参数
-        JSONObject content = this.build(param, "QUICK_WAP_WAY")
+        JSONObject content = PaymentUtil.getInstance().buildPaymentBody(param, "QUICK_WAP_WAY")
             .put("quit_url", properties.getExitUrl());
         request.setBizContent(content.toString());
         //  调起支付
