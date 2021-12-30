@@ -1,4 +1,4 @@
-package com.y1ph.easy.design.common.util;
+package com.y1ph.easy.design.common.utils;
 
 /**
  * Represents a function that accepts one argument and produces a result.
