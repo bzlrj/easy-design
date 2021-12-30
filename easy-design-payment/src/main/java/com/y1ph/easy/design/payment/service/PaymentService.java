@@ -28,8 +28,9 @@ public interface PaymentService<Properties extends PaymentProperties<?>> extends
      * @param param      {@link OrderParam} 订单参数
      * @param properties {@link PaymentProperties}
      * @param <Param>    {@link PaymentProperties}
-     * @return {@link Object} 不同方式的支付返回值不同,因此这里返回一个Object
+     * @return {@link Object}
+     * @throws Exception 异常
      */
-    <Param extends OrderParam> Object payment(Param param, Properties properties);
+    <Param extends OrderParam> Object payment(Param param, Properties properties) throws Exception;
 
 }
