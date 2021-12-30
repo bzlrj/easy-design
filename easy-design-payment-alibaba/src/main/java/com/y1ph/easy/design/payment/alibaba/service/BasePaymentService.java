@@ -1,9 +1,5 @@
 package com.y1ph.easy.design.payment.alibaba.service;
 
-import com.alipay.api.AlipayClient;
-import com.alipay.api.AlipayResponse;
-import com.alipay.api.DefaultAlipayClient;
-import com.y1ph.easy.design.common.utils.Function;
 import com.y1ph.easy.design.payment.alibaba.beans.AlipayProperties;
 import com.y1ph.easy.design.payment.beans.OrderParam;
 import com.y1ph.easy.design.payment.service.PaymentService;
@@ -20,30 +16,9 @@ import org.springframework.context.ApplicationContextAware;
  * @author WFT
  * @since 2021/12/30
  */
-public abstract class BasePaymentService<R extends AlipayResponse> implements PaymentService<AlipayProperties<?>>, ApplicationContextAware {
+public abstract class BasePaymentService implements PaymentService<AlipayProperties<?>>, ApplicationContextAware {
 
     private AlipayPropertiesService<?> propertiesService;
-
-    /**
-     * 创建支付宝客户端,并调起支付
-     *
-     * @param function     {@link Function}
-     * @param properties   {@link AlipayProperties}
-     * @param <P> {@link AlipayProperties}
-     * @return {@link String}
-     */
-    @SuppressWarnings("SpellCheckingInspection")
-    protected <P extends AlipayProperties<?>> String execute(Function<AlipayClient, R> function, P properties) throws Exception {
-        return function.apply(new DefaultAlipayClient(
-            properties.getServerUrl(),
-            properties.getAppId(),
-            properties.getPrivateKey(),
-            properties.getFormat(),
-            properties.getCharset(),
-            properties.getPublicKey(),
-            properties.getSignType()
-        )).getBody();
-    }
 
     @Override
     @SneakyThrows
