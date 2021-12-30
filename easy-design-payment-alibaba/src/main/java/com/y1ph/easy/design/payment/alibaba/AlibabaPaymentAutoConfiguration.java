@@ -18,7 +18,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 @ComponentScan
 @SuppressWarnings("SpellCheckingInspection")
-public class PaymentAutoConfiguration {
+public class AlibabaPaymentAutoConfiguration {
 
     /**
      * 退款接口
