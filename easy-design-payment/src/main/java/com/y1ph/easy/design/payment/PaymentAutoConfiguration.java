@@ -11,7 +11,7 @@ import org.springframework.context.annotation.Configuration;
  */
 @Configuration
 @ComponentScan
-public class EasyPaymentConfiguration {
+public class PaymentAutoConfiguration {
 
 
 }
