@@ -8,7 +8,6 @@ import com.y1ph.easy.design.payment.beans.RefundOrder;
 import com.y1ph.easy.design.payment.service.RefundService;
 import lombok.RequiredArgsConstructor;
 import lombok.SneakyThrows;
-import org.springframework.stereotype.Service;
 
 /**
  * 支付宝-退款接口实现类
@@ -16,7 +15,6 @@ import org.springframework.stereotype.Service;
  * @author WFT
  * @since 2021/12/30
  */
-@Service
 @RequiredArgsConstructor
 @SuppressWarnings("SpellCheckingInspection")
 public class AlibabaRefundServiceImpl implements RefundService {
