@@ -1,0 +1,9 @@
+{
+    "properties": [
+        {
+            "name": "easy.payment.wechat-list",
+            "type": "java.util.List<com.y1ph.easy.design.payment.wechat.beans.DefaultWechatProperties>",
+            "description": "微信支付相关配置."
+        }
+    ]
+}
