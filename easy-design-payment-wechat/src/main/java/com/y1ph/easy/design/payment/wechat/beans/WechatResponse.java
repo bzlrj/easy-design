@@ -1,6 +1,6 @@
 package com.y1ph.easy.design.payment.wechat.beans;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -14,34 +14,39 @@ import java.io.Serializable;
  */
 @Getter
 @Setter
+@Builder
 @SuppressWarnings("SpellCheckingInspection")
 public class WechatResponse implements Serializable {
+
+    /**
+     * 应用编号
+     */
+    private String appId;
+
+    /**
+     * 商户编号
+     */
+    private String merchantId;
+
+    /**
+     * 时间戳
+     */
+    private String timestamp;
+
+    /**
+     * 随机字符串
+     */
+    private String nonceStr;
 
     /**
      * 预支付交易会话标识,用于后续接口调用中使用，该值有效期为2小时.
      * 使用场景：【App支付,JsApi支付】
      */
-    @JsonProperty(value = "prepay_id")
     private String prepayId;
 
     /**
-     * 拉起微信支付收银台的中间页面,可通过访问该url来拉起微信客户端,完成支付,h5_url的有效期为5分钟.
-     * 使用场景：【H5支付】
+     * 签名
      */
-    @JsonProperty(value = "h5_url")
-    private String h5Url;
-
-    /**
-     * 此URL用于生成支付二维码,然后提供给用户扫码支付.
-     * 使用场景：【Native支付】
-     */
-    @JsonProperty(value = "code_url")
-    private String codeUrl;
-
-    /**
-     * 异常信息
-     */
-    @JsonProperty(value = "message")
-    private String message;
+    private String signature;
 
 }
