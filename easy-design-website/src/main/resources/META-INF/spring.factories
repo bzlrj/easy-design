@@ -1,3 +1,4 @@
 # suppress inspection "SpellCheckingInspection" for whole file
 org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+  com.y1ph.easy.design.website.BasicConfiguration,\
   com.y1ph.easy.design.website.WebMvcConfiguration
