@@ -18,10 +18,17 @@ public interface RefundOrder extends BaseEntity<Long> {
     Long getOrderId();
 
     /**
-     * 获取退款金额
+     * 获取原订单金额
      *
      * @return {@link Integer}
      */
     Integer getPrice();
+
+    /**
+     * 获取退款金额
+     *
+     * @return {@link Integer}
+     */
+    Integer getRefund();
 
 }
