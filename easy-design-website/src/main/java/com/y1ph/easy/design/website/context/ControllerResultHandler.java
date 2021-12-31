@@ -43,7 +43,7 @@ public class ControllerResultHandler implements HandlerMethodReturnValueHandler 
         if (null != response) {
             response.setContentType("application/json;charset=UTF-8");
             PrintWriter printWriter = response.getWriter();
-            printWriter.write(JsonUtil.getInstance().toJson(ResultBean.build(HttpStatus.OK, null, result)));
+            printWriter.print(ResultBean.build(HttpStatus.OK, null, result));
             printWriter.close();
         }
     }
