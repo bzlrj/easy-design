@@ -26,13 +26,14 @@ public class BasicConfiguration implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         //  获取请求映射处理器对象
         RequestMappingHandlerAdapter adapter = context.getBean(RequestMappingHandlerAdapter.class);
-        //  复制原有的处理器
         List<HandlerMethodReturnValueHandler> list = new ArrayList<>();
+        //  配置接口返回值类型处理器
+        list.add(new ControllerResultHandler());
+        //  复制原有的处理器
         if (null != adapter.getReturnValueHandlers()){
             list.addAll(adapter.getReturnValueHandlers());
         }
-        //  配置接口返回值类型处理器
-        list.add(new ControllerResultHandler());
         adapter.setReturnValueHandlers(list);
+        adapter.getReturnValueHandlers().forEach(item -> System.err.println(item.getClass()));
     }
 }
