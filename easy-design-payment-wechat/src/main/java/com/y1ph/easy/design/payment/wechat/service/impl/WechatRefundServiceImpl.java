@@ -27,7 +27,7 @@ public class WechatRefundServiceImpl implements RefundService {
         //  获取支付配置
         WechatProperties<?> properties = this.propertiesService.getProperties(clientId);
         //  构建请求体
-        JSONObject body = PaymentUtil.getInstance().buildRefundBody(param);
+        JSONObject body = PaymentUtil.getInstance().buildRefundBody(param,properties.getRefundNotifyUrl());
         //  API
         String api = "/v3/refund/domestic/refunds";
         //  发起退款

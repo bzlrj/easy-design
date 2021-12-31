@@ -74,18 +74,21 @@ public class PaymentUtil {
     /**
      * 构建退款的请求体
      *
-     * @param param   订单信息
-     * @param <Param> {@link RefundOrder}
+     * @param param     订单信息
+     * @param notifyUrl 退款通知地址
+     * @param <Param>   {@link RefundOrder}
      * @return {@link JSONObject}
      */
-    public <Param extends RefundOrder> JSONObject buildRefundBody(Param param) throws JSONException {
+    public <Param extends RefundOrder> JSONObject buildRefundBody(Param param, String notifyUrl) throws JSONException {
         return new JSONObject()
             //  订单编号
             .put("out_trade_no", param.getOrderId())
             //  退款单号
             .put("out_refund_no", param.getId())
             //  订单金额信息
-            .put("amount", this.getAmount(param.getPrice()).put("refund", param.getRefund()));
+            .put("amount", this.getAmount(param.getPrice()).put("refund", param.getRefund()))
+            //  退款通知地址
+            .put("notify_url", notifyUrl);
     }
 
     private JSONObject getAmount(Integer price) throws JSONException {
