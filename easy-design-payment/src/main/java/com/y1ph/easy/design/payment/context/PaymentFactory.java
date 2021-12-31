@@ -1,6 +1,7 @@
-package com.y1ph.easy.design.payment;
+package com.y1ph.easy.design.payment.context;
 
 import com.y1ph.easy.design.common.BaseBeanFactory;
+import com.y1ph.easy.design.payment.BasePaymentFactory;
 import org.springframework.stereotype.Component;
 
 /**
