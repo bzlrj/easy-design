@@ -1,5 +1,6 @@
 package com.y1ph.easy.design.website.beans;
 
+import com.y1ph.easy.design.common.utils.JsonUtil;
 import lombok.Getter;
 
 import java.io.Serializable;
@@ -33,4 +34,8 @@ public class ResultBean<Data> implements Serializable {
         return new ResultBean<>(code, msg, data);
     }
 
+    @Override
+    public String toString() {
+        return JsonUtil.getInstance().toJson(this);
+    }
 }
