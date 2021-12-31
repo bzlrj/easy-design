@@ -22,6 +22,11 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-configuration-processor</artifactId>
         </dependency>
+        <!-- Web 模块 -->
+        <dependency>
+            <groupId>com.y1ph</groupId>
+            <artifactId>easy-design-website</artifactId>
+        </dependency>
         <!-- 支付模块 -->
         <dependency>
             <groupId>com.y1ph</groupId>
