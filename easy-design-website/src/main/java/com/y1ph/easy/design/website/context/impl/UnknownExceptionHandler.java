@@ -6,13 +6,13 @@ import com.y1ph.easy.design.website.context.ExceptionHandler;
 import org.springframework.stereotype.Service;
 
 /**
- * 运行时异常处理器
+ * 未知异常处理器
  *
  * @author WFT
  * @since 2022/1/1
  */
 @Service
-public class RuntimeExceptionHandler implements ExceptionHandler<Class<Exception>> {
+public class UnknownExceptionHandler implements ExceptionHandler<Class<Exception>> {
 
     @Override
     public <E extends Throwable> ResultBean<?> resolve(E exception) {
