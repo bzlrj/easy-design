@@ -32,6 +32,7 @@ public class WebMvcConfiguration implements WebMvcConfigurer, ApplicationContext
 
     @Override
     public void setApplicationContext(ApplicationContext context) throws BeansException {
-
+        //  从容器中获取拦截器
+        this.interceptors = context.getBeansOfType(BaseHandlerInterceptor.class).values();
     }
 }
