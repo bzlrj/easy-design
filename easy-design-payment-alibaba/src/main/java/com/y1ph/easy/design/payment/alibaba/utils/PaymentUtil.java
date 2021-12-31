@@ -69,7 +69,7 @@ public class PaymentUtil {
     public <Param extends RefundOrder> JSONObject buildRefundBody(Param param) throws JSONException {
         return new JSONObject()
             .put("out_trade_no", param.getOrderId())
-            .put("refund_amount", this.priceFormat(param.getPrice()))
+            .put("refund_amount", this.priceFormat(param.getRefund()))
             .put("out_request_no",param.getId());
     }
 
