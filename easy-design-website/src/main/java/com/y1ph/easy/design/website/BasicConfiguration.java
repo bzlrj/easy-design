@@ -34,6 +34,5 @@ public class BasicConfiguration implements ApplicationContextAware {
             list.addAll(adapter.getReturnValueHandlers());
         }
         adapter.setReturnValueHandlers(list);
-        adapter.getReturnValueHandlers().forEach(item -> System.err.println(item.getClass()));
     }
 }
