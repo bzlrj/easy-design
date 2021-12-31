@@ -9,7 +9,7 @@ import org.springframework.scheduling.annotation.EnableAsync;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
-import java.util.Collections;
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,12 +26,13 @@ public class BasicConfiguration implements ApplicationContextAware {
     public void setApplicationContext(ApplicationContext context) throws BeansException {
         //  获取请求映射处理器对象
         RequestMappingHandlerAdapter adapter = context.getBean(RequestMappingHandlerAdapter.class);
-        //  配置接口返回值类型处理器
-        List<HandlerMethodReturnValueHandler> handlerList = adapter.getReturnValueHandlers();
-        if (null != handlerList){
-            handlerList.add(new ControllerResultHandler());
-        } else {
-            adapter.setReturnValueHandlers(Collections.singletonList(new ControllerResultHandler()));
+        //  复制原有的处理器
+        List<HandlerMethodReturnValueHandler> list = new ArrayList<>();
+        if (null != adapter.getReturnValueHandlers()){
+            list.addAll(adapter.getReturnValueHandlers());
         }
+        //  配置接口返回值类型处理器
+        list.add(new ControllerResultHandler());
+        adapter.setReturnValueHandlers(list);
     }
 }
