@@ -1,8 +1,5 @@
 package com.y1ph.easy.design.website.context.impl;
 
-import com.y1ph.easy.design.website.beans.ResultBean;
-import com.y1ph.easy.design.website.constant.HttpStatus;
-import com.y1ph.easy.design.website.context.ExceptionHandler;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.MissingRequestHeaderException;
 
@@ -13,12 +10,7 @@ import org.springframework.web.bind.MissingRequestHeaderException;
  * @since 2022/1/1
  */
 @Component
-public class MissingRequestHeaderExceptionHandler implements ExceptionHandler<Class<MissingRequestHeaderException>> {
-
-    @Override
-    public <E extends Throwable> ResultBean<?> resolve(E exception) {
-        return ResultBean.build(HttpStatus.BAD_REQUEST, exception.getMessage());
-    }
+public class MissingRequestHeaderExceptionHandler extends BaseParameterExceptionHandler<Class<MissingRequestHeaderException>> {
 
     @Override
     public Class<MissingRequestHeaderException> getId() {
