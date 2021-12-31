@@ -9,7 +9,7 @@ import lombok.Getter;
  * @since 2022/1/1
  */
 @Getter
-public class BizException extends Exception {
+public class BizException extends RuntimeException {
 
     /**
      * Http状态码
