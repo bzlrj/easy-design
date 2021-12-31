@@ -36,7 +36,7 @@ public abstract class BaseBeanFactory<Id extends Serializable, Bean extends Base
      * @param id 主键
      * @return {@link Serializable}
      */
-    public final Bean get(Id id) {
+    public Bean get(Id id) {
         return Optional.ofNullable(this.map.get(id)).orElseThrow(this::illegalArgumentException);
     }
 
