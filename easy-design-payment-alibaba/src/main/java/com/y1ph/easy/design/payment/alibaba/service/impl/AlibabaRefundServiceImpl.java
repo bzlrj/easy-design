@@ -28,6 +28,7 @@ public class AlibabaRefundServiceImpl implements RefundService {
         AlipayProperties<?> properties = this.propertiesService.getProperties(clientId);
         //  构建请求体
         AlipayTradeRefundRequest request = new AlipayTradeRefundRequest();
+        request.setNotifyUrl(properties.getRefundNotifyUrl());
         //  设置业务参数
         request.setBizContent(PaymentUtil.getInstance().buildRefundBody(param).toString());
         //  调用退款接口

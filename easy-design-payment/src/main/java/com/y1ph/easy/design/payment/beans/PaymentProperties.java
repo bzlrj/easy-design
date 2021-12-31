@@ -34,7 +34,7 @@ public interface PaymentProperties<Id extends Serializable> extends BaseEntity<I
     String getPrivateKey();
 
     /**
-     * 获取支付后用于接受第三方异步通知的接口地址
+     * 获取用于接收支付通知的接口地址
      *
      * @return {@link String}
      */
@@ -46,5 +46,12 @@ public interface PaymentProperties<Id extends Serializable> extends BaseEntity<I
      * @return {@link String}
      */
     String getServerUrl();
+
+    /**
+     * 获取用于接收退款通知的接口地址
+     *
+     * @return {@link String}
+     */
+    String getRefundNotifyUrl();
 
 }

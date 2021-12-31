@@ -40,9 +40,14 @@ public class DefaultAlipayProperties implements AlipayProperties<Long> {
     private String publicKey;
 
     /**
-     * 支付后用于接受第三方异步通知的接口地址
+     * 于接收支付通知的接口地址
      */
     private String notifyUrl;
+
+    /**
+     * 用于接收退款通知的接口地址
+     */
+    private String refundNotifyUrl;
 
     /**
      * 第三方支付的服务地址
