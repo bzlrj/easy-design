@@ -33,10 +33,6 @@
             <groupId>com.y1ph</groupId>
             <artifactId>easy-design-common</artifactId>
         </dependency>
-        <dependency>
-            <groupId>com.y1ph</groupId>
-            <artifactId>easy-design-payment-alibaba</artifactId>
-        </dependency>
     </dependencies>
 
 </project>
