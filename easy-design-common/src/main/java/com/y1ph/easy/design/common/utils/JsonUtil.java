@@ -7,7 +7,6 @@ import com.fasterxml.jackson.databind.SerializationFeature;
 import com.fasterxml.jackson.databind.module.SimpleModule;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
 import com.fasterxml.jackson.datatype.jsr310.JavaTimeModule;
-import lombok.Getter;
 import lombok.SneakyThrows;
 
 import java.util.List;
@@ -18,7 +17,6 @@ import java.util.List;
  * @author WFT
  * @since 2021/12/30
  */
-@Getter
 public class JsonUtil {
 
     private final ObjectMapper mapper;
