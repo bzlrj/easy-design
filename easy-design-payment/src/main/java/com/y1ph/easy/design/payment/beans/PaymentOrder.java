@@ -24,4 +24,11 @@ public interface PaymentOrder extends BaseEntity<Long> {
      */
     Integer getPrice();
 
+    /**
+     * 获取OpenId
+     *
+     * @return {@link String}
+     */
+    String getOpenId();
+
 }
