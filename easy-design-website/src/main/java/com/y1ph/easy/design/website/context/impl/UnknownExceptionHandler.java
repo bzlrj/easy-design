@@ -3,7 +3,7 @@ package com.y1ph.easy.design.website.context.impl;
 import com.y1ph.easy.design.website.beans.ResultBean;
 import com.y1ph.easy.design.website.constant.HttpStatus;
 import com.y1ph.easy.design.website.context.ExceptionHandler;
-import org.springframework.stereotype.Service;
+import org.springframework.stereotype.Component;
 
 /**
  * 未知异常处理器
@@ -11,7 +11,7 @@ import org.springframework.stereotype.Service;
  * @author WFT
  * @since 2022/1/1
  */
-@Service
+@Component
 public class UnknownExceptionHandler implements ExceptionHandler<Class<Exception>> {
 
     @Override
