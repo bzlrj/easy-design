@@ -91,8 +91,8 @@ public class TestController{
 ```
 
 通过上诉代码，不难发现接口返回值明明是String，但调用接口时却得到了一个对象。  
-这是因为我们在 ``easy-design-website`` 模块中做了手脚，无论接口的返回值是什么，都将返回一个 ``RestBean`` 对象。  
-这样做的目的，就是为了防止在项目中出现多个类似于 ``RestBean`` 的类出现。 
+这是因为我们在 ``easy-design-website`` 模块中做了手脚，无论接口的返回值是什么，都将返回一个 ``ResultBean`` 对象。  
+这样做的目的，就是为了防止在项目中出现多个类似于 ``ResultBean`` 的类出现。 
 
 
 
