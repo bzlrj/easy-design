@@ -26,7 +26,7 @@ easy-design
 
 在项目的 ``pom.xml`` 加入以下代码,并将 ``${version}`` 替换为对应的版本号
 
-~~~xml
+```xml
 <dependencyManagement>
     <dependencies>
         <dependency>
@@ -38,10 +38,10 @@ easy-design
         </dependency>
     </dependencies>
 </dependencyManagement>
-~~~
+```
 
 随后引入所需的模块,例如：``easy-design-website``
-~~~xml
+```xml
 <dependencies>
     <dependency>
         <groupId>com.y1ph</groupId>
@@ -49,13 +49,13 @@ easy-design
     </dependency>
     ...
 </dependencies>
-~~~
+```
 
 ### 启动程序
 
 通过在 ``main`` 方法中执行 ``SpringApplication.run();`` 启动程序
 
-~~~java
+```java
 @SpringBootApplication
 public class TestApplication {
 
@@ -64,7 +64,7 @@ public class TestApplication {
     }
     
 }
-~~~
+```
 
 编写一个测试接口
 
