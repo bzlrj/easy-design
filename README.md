@@ -20,6 +20,81 @@ easy-design
     ├── easy-design-website -- Web模块
 ```
 
+## 快速开始
+
+### 引入项目依赖
+
+在项目的 ``pom.xml`` 加入以下代码,并将 ``${version}`` 替换为对应的版本号
+
+~~~xml
+<dependencyManagement>
+    <dependencies>
+        <dependency>
+            <groupId>com.y1ph</groupId>
+            <artifactId>easy-design</artifactId>
+            <version>${version}</version>
+            <type>pom</type>
+            <scope>import</scope>
+        </dependency>
+    </dependencies>
+</dependencyManagement>
+~~~
+
+随后引入所需的模块,例如：``easy-design-website``
+~~~xml
+<dependencies>
+    <dependency>
+        <groupId>com.y1ph</groupId>
+        <artifactId>easy-design-website</artifactId>
+    </dependency>
+    ...
+</dependencies>
+~~~
+
+### 启动程序
+
+通过在 ``main`` 方法中执行 ``SpringApplication.run();`` 启动程序
+
+~~~java
+@SpringBootApplication
+public class TestApplication {
+
+    public static void main(String[] args) {
+        SpringApplication.run(TestApplication.class, args);
+    }
+    
+}
+~~~
+
+编写一个测试接口
+
+```java
+@RestController
+public class TestController{
+    
+    @GetMapper("/test")
+    public String test(){
+        return "success";
+    }
+    
+}
+
+```
+
+访问接口： ``http://127.0.0.1:8080/test``
+
+```json
+{
+    "code" : 200,
+    "data" : "success" 
+}
+```
+
+通过上诉代码，不难发现接口返回值明明是String，但调用接口时却得到了一个对象。  
+这是因为我们在 ``easy-design-website`` 模块中做了手脚，无论接口的返回值是什么，都将返回一个 ``RestBean`` 对象。  
+这样做的目的，就是为了防止在项目中出现多个类似于 ``RestBean`` 的类出现。 
+
+
 
 ## 开源共建
 
