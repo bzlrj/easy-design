@@ -19,7 +19,6 @@ import java.util.concurrent.TimeUnit;
 public abstract class BaseRedisServiceImpl implements BaseRedisService {
 
     @Autowired
-    @SuppressWarnings("SpringJavaAutowiredMembersInspection")
     protected RedisTemplate<String,Object> template;
 
     /**
