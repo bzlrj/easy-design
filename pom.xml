@@ -13,6 +13,7 @@
         <module>easy-design-payment</module>
         <module>easy-design-payment-alibaba</module>
         <module>easy-design-payment-wechat</module>
+        <module>easy-design-data-redis</module>
     </modules>
 
     <packaging>pom</packaging>
