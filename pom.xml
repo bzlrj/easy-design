@@ -14,6 +14,7 @@
         <module>easy-design-payment-alibaba</module>
         <module>easy-design-payment-wechat</module>
         <module>easy-design-data-redis</module>
+        <module>easy-design-data-mybatis</module>
     </modules>
 
     <packaging>pom</packaging>
