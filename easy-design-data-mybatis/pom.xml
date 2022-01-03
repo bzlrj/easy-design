@@ -24,6 +24,11 @@
             <artifactId>mybatis-plus-boot-starter</artifactId>
             <version>3.3.2</version>
         </dependency>
+        <!-- 核心依赖 -->
+        <dependency>
+            <groupId>com.y1ph</groupId>
+            <artifactId>easy-design-common</artifactId>
+        </dependency>
     </dependencies>
 
 
