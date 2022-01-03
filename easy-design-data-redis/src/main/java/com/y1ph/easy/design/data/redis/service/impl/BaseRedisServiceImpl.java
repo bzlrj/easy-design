@@ -1,6 +1,8 @@
 package com.y1ph.easy.design.data.redis.service.impl;
 
 import com.y1ph.easy.design.data.redis.service.BaseRedisService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 
 import java.util.Collection;
@@ -13,13 +15,12 @@ import java.util.concurrent.TimeUnit;
  * @author WFT
  * @since 2022/1/3
  */
+@RequiredArgsConstructor
 public abstract class BaseRedisServiceImpl implements BaseRedisService {
 
-    /**
-     * (non-Javadoc)
-     * @return {@link RedisTemplate}
-     */
-    protected abstract RedisTemplate<String, Object> getTemplate();
+    @Autowired
+    @SuppressWarnings("SpringJavaAutowiredMembersInspection")
+    protected RedisTemplate<String,Object> template;
 
     /**
      * 删除缓存
@@ -28,7 +29,7 @@ public abstract class BaseRedisServiceImpl implements BaseRedisService {
      */
     @Override
     public void delete(String key) {
-        this.getTemplate().delete(key);
+        this.template.delete(key);
     }
 
     /**
@@ -38,7 +39,7 @@ public abstract class BaseRedisServiceImpl implements BaseRedisService {
      */
     @Override
     public void delete(Collection<String> keys) {
-        this.getTemplate().delete(keys);
+        this.template.delete(keys);
     }
 
     /**
@@ -49,7 +50,7 @@ public abstract class BaseRedisServiceImpl implements BaseRedisService {
      */
     @Override
     public Set<String> keys(String pattern) {
-        return this.getTemplate().keys(pattern);
+        return this.template.keys(pattern);
     }
 
     /**
@@ -72,7 +73,7 @@ public abstract class BaseRedisServiceImpl implements BaseRedisService {
      */
     @Override
     public Long expire(String key, TimeUnit unit) {
-        return this.getTemplate().getExpire(key, unit);
+        return this.template.getExpire(key, unit);
     }
 
     /**
@@ -95,7 +96,7 @@ public abstract class BaseRedisServiceImpl implements BaseRedisService {
      */
     @Override
     public void expire(String key, long timeout, TimeUnit unit) {
-        this.getTemplate().expire(key, timeout, unit);
+        this.template.expire(key, timeout, unit);
     }
 
 }
