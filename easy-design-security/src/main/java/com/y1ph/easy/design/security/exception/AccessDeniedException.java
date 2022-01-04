@@ -10,7 +10,7 @@ import com.y1ph.easy.design.website.constant.HttpStatus;
  */
 public class AccessDeniedException extends BaseSecurityException {
 
-    public AccessDeniedException(){
+    public AccessDeniedException() {
         this("You don't have permission to access on this server.");
     }
 
