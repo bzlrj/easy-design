@@ -15,6 +15,7 @@
         <module>easy-design-payment-wechat</module>
         <module>easy-design-data-redis</module>
         <module>easy-design-data-mybatis</module>
+        <module>easy-design-security</module>
     </modules>
 
     <packaging>pom</packaging>
@@ -106,7 +107,24 @@
                 <artifactId>easy-design-payment-wechat</artifactId>
                 <version>${easy-design.version}</version>
             </dependency>
-
+            <!-- MyBatis 模块 -->
+            <dependency>
+                <groupId>com.y1ph</groupId>
+                <artifactId>easy-design-data-mybatis</artifactId>
+                <version>${easy-design.version}</version>
+            </dependency>
+            <!-- Redis 模块 -->
+            <dependency>
+                <groupId>com.y1ph</groupId>
+                <artifactId>easy-design-data-redis</artifactId>
+                <version>${easy-design.version}</version>
+            </dependency>
+            <!-- 权限模块 -->
+            <dependency>
+                <groupId>com.y1ph</groupId>
+                <artifactId>easy-design-security</artifactId>
+                <version>${easy-design.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <parent>
+        <artifactId>easy-design</artifactId>
+        <groupId>com.y1ph</groupId>
+        <version>1.0.0</version>
+    </parent>
+    <modelVersion>4.0.0</modelVersion>
+
+    <artifactId>easy-design-security</artifactId>
+
+    <dependencies>
+        <!-- Lombok -->
+        <dependency>
+            <groupId>org.projectlombok</groupId>
+            <artifactId>lombok</artifactId>
+        </dependency>
+        <!-- Web 模块 -->
+        <dependency>
+            <groupId>com.y1ph</groupId>
+            <artifactId>easy-design-website</artifactId>
+        </dependency>
+        <!-- Redis 模块 -->
+        <dependency>
+            <groupId>com.y1ph</groupId>
+            <artifactId>easy-design-data-redis</artifactId>
+        </dependency>
+    </dependencies>
+
+</project>
