@@ -10,7 +10,7 @@ import com.y1ph.easy.design.website.exception.BizException;
  */
 public class BaseSecurityException extends BizException {
 
-    public BaseSecurityException(String message, int code) {
+    BaseSecurityException(String message, int code) {
         super(message, code);
     }
 
