@@ -67,7 +67,7 @@ public class RedisSecurityTokenServiceImpl implements SecurityTokenService {
         String token = UUID.randomUUID().toString();
         //  将主体信息保存到Redis中
         this.redisService.set(this.getCacheName(clientId, token), principal, VALIDITY);
-        return new AccessToken(token, this.getId(), principal);
+        return new AccessToken(token, principal);
     }
 
     @Override

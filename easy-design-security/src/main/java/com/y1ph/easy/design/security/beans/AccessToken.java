@@ -19,11 +19,6 @@ public class AccessToken {
     private final String token;
 
     /**
-     * 令牌生成规则
-     */
-    private final String rule;
-
-    /**
      * 用户主体
      */
     private final Principal<?> principal;
