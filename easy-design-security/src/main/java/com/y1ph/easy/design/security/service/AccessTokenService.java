@@ -12,7 +12,7 @@ import com.y1ph.easy.design.security.exception.AuthenticationException;
  * @author WFT
  * @since 2022/1/4
  */
-public interface SecurityTokenService extends BaseBean<String> {
+public interface AccessTokenService extends BaseBean<String> {
 
     /**
      * 获取当前登录用户的主体信息

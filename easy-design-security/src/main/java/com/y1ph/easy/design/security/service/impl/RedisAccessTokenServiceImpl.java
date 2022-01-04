@@ -5,7 +5,7 @@ import com.y1ph.easy.design.security.beans.AccessToken;
 import com.y1ph.easy.design.security.beans.Principal;
 import com.y1ph.easy.design.security.beans.SecurityContext;
 import com.y1ph.easy.design.security.exception.AuthenticationException;
-import com.y1ph.easy.design.security.service.SecurityTokenService;
+import com.y1ph.easy.design.security.service.AccessTokenService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -19,7 +19,7 @@ import java.util.UUID;
  */
 @Service
 @RequiredArgsConstructor
-public class RedisSecurityTokenServiceImpl implements SecurityTokenService {
+public class RedisAccessTokenServiceImpl implements AccessTokenService {
 
     private final StringRedisService redisService;
 
