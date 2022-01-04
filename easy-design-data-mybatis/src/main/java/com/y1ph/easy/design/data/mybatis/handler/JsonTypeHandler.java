@@ -1,11 +1,8 @@
 package com.y1ph.easy.design.data.mybatis.handler;
 
 import com.baomidou.mybatisplus.extension.handlers.AbstractJsonTypeHandler;
-import com.y1ph.easy.design.common.BaseEntity;
 import com.y1ph.easy.design.common.utils.JsonUtil;
 import lombok.RequiredArgsConstructor;
-
-import java.io.Serializable;
 
 /**
  * Json处理器
@@ -14,7 +11,7 @@ import java.io.Serializable;
  * @since 2022/1/4
  */
 @RequiredArgsConstructor
-public class JsonTypeHandler<T extends BaseEntity<? extends Serializable>> extends AbstractJsonTypeHandler<T> {
+public class JsonTypeHandler<T> extends AbstractJsonTypeHandler<T> {
 
     private final Class<T> clazz;
 
