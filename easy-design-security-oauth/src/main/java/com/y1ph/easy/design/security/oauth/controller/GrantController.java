@@ -35,27 +35,10 @@ public class GrantController {
     private final CodeService codeService;
 
     /**
-     * 登录接口
-     *
-     * @param parameter {@link OauthParameter} 认证参数
-     * @return {@link AccessToken} 访问令牌
-     */
-    @PostMapping
-    public AccessToken login(@RequestBody OauthParameter parameter) {
-        //  客户端信息
-        parameter.setClientId("");
-        parameter.setClientSecret("");
-        //  密码模式
-        parameter.setGrantType(GrantType.password);
-        //  获取访问令牌
-        return this.getToken(parameter);
-    }
-
-    /**
      * 退出接口
      */
     @PreAuthorize
-    @GetMapping
+    @DeleteMapping
     public void logout() {
         this.tokenService.remove(SecurityUtil.getContext());
     }
@@ -67,7 +50,7 @@ public class GrantController {
      * @return {@link String} 授权码
      */
     @PreAuthorize
-    @GetMapping(value = "/code/{clientId}")
+    @GetMapping(value = "/{clientId}")
     public String getCode(@PathVariable(value = "clientId") String clientId) {
         //  获取客户端信息
         OauthClient<? extends Serializable> client = this.clientService.select(clientId);
@@ -83,12 +66,12 @@ public class GrantController {
 
 
     /**
-     * 第三方应用获取获取访问令牌接口
+     * 获取获取访问令牌接口
      *
      * @param parameter {@link OauthParameter} 认证参数
      * @return {@link AccessToken} 访问令牌
      */
-    @PostMapping(value = "/token")
+    @PostMapping
     public AccessToken getToken(@RequestBody OauthParameter parameter) {
         //  获取当前登录用户
         Principal<?> principal = this.factory.get(parameter.getGrantType()).grant(parameter);
