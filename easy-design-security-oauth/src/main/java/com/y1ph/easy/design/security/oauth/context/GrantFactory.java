@@ -16,7 +16,7 @@ public class GrantFactory extends BaseBeanFactory<GrantType, GrantService> {
 
     @Override
     protected IllegalArgumentException illegalArgumentException() {
-        return new IllegalArgumentException("");
+        return new IllegalArgumentException("暂不支持此认证方式");
     }
 
 }
