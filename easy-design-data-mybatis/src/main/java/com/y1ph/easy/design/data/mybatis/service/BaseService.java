@@ -16,7 +16,7 @@ import java.util.function.Consumer;
  * @author WFT
  * @since 2022/1/4
  */
-public interface BaseService<Entity extends BaseEntity<?>> {
+public interface BaseService<Entity extends BaseEntity> {
 
     /**
      * 根据编号查询
@@ -48,7 +48,7 @@ public interface BaseService<Entity extends BaseEntity<?>> {
     /**
      * 根据编号列表查询
      *
-     * @param list {@link List} 编号列表不能为空
+     * @param list {@link Collection} 编号列表不能为空
      * @return {@link List} 查询结果
      */
     default List<Entity> query(Collection<? extends Serializable> list) {
@@ -130,7 +130,7 @@ public interface BaseService<Entity extends BaseEntity<?>> {
      * 修改多条数据
      *
      * @param param {@link BaseEntity} 需要更新的数据
-     * @param list  {@link List} 编号列表
+     * @param list  {@link Collection} 编号列表
      */
     default void update(Entity param, Collection<? extends Serializable> list) {
         this.update(param, wrapper -> wrapper.in(Entity::getId, list));
@@ -163,7 +163,7 @@ public interface BaseService<Entity extends BaseEntity<?>> {
     /**
      * 删除多条数据
      *
-     * @param list {@link List} 编号列表
+     * @param list {@link Collection} 编号列表
      */
     default void delete(Collection<? extends Serializable> list) {
         this.delete(wrapper -> wrapper.in(Entity::getId, list));

@@ -25,6 +25,6 @@ public enum GrantType implements BaseEnum<Integer> {
     authorization_code(2),
     ;
 
-    private final int value;
+    private final Integer value;
 
 }
