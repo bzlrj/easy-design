@@ -6,7 +6,7 @@
 
     <groupId>com.y1ph</groupId>
     <artifactId>easy-design</artifactId>
-    <version>1.0.1</version>
+    <version>1.0.2</version>
     <modules>
         <module>easy-design-common</module>
         <module>easy-design-website</module>
