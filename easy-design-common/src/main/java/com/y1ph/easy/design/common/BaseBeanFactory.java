@@ -54,9 +54,11 @@ public abstract class BaseBeanFactory<Id extends Serializable, Bean extends Base
             String className = arguments[arguments.length - 1].toString()
                 //  去除不必要的字符
                 .replaceAll("^class", "")
+                .replaceAll("^interface", "")
                 .replaceAll("<.*>$", "")
                 .trim();
             //  从Spring容器中获取该类型的所有实例
+            System.err.println(className);
             this.map = context.getBeansOfType((Class<Bean>) Class.forName(className))
                 .values()
                 .stream()
